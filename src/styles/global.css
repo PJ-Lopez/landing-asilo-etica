@@ -1,26 +1,34 @@
+/* --- VARIABLES DE MARCA (Basadas en tu logo) --- */
 :root {
     --brand-color: #3aa9ad;
-    /* Turquesa del logo */
+    /* Turquesa principal */
     --brand-dark: #2c8a8e;
+    /* Turquesa oscuro para contrastes */
     --white: #ffffff;
     --bg-light: #f4f8f9;
     --text-main: #2d3748;
     --text-muted: #718096;
 }
 
+/* --- RESET BÁSICO --- */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    margin: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-main);
     background-color: var(--bg-light);
     line-height: 1.6;
 }
 
-/* Navegación */
+/* --- NAVEGACIÓN --- */
 nav {
     background-color: var(--white);
     border-bottom: 3px solid var(--brand-color);
@@ -39,13 +47,18 @@ nav {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 500;
+    transition: color 0.3s;
 }
 
-/* Hero Section */
+.nav-links a:hover {
+    color: var(--brand-color);
+}
+
+/* --- HERO SECTION --- */
 .hero {
     background: linear-gradient(135deg, var(--brand-color) 0%, var(--brand-dark) 100%);
     color: var(--white);
-    padding: 6rem 1rem;
+    padding: 6rem 1.5rem;
     text-align: center;
     clip-path: ellipse(150% 100% at 50% 0%);
 }
@@ -58,25 +71,35 @@ nav {
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    transition: transform 0.2s;
+    border: 2px solid var(--white);
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    transform: scale(1.05);
+    background-color: transparent;
+    color: var(--white);
+    transform: translateY(-3px);
 }
 
-/* Secciones y Cards */
+/* --- SECCIONES --- */
 section {
-    padding: 4rem 1.5rem;
+    padding: 5rem 1.5rem;
     max-width: 1100px;
     margin: auto;
 }
 
+h2 {
+    color: var(--brand-dark);
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* --- GRID 2x2 (Servicios y Misión/Visión) --- */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-top: 2rem;
 }
 
 .card {
@@ -85,48 +108,60 @@ section {
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     border-top: 6px solid var(--brand-color);
+    height: 100%;
 }
 
-h2 {
-    color: var(--brand-dark);
-    font-size: 2rem;
-    text-align: center;
+/* --- VALORES (Lista con puntos turquesas) --- */
+.valores-lista {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 2rem auto 0 auto;
 }
 
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nav-links {
-        margin-top: 1rem;
-    }
+.valores-lista li {
+    position: relative;
+    padding-left: 1.8rem;
+    font-weight: 600;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
 }
 
+.valores-lista li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-color: var(--brand-color);
+    border-radius: 50%;
+}
+
+/* --- SERVICIOS ESPECÍFICOS --- */
 .service-item {
-    padding: 1rem;
-    border-left: 4px solid var(--brand-color);
-    background: var(--bg-light);
-    border-radius: 0 10px 10px 0;
+    padding: 1.5rem;
+    border-left: 5px solid var(--brand-color);
+    background: white;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.03);
 }
 
-.service-item h4 {
-    margin-top: 0;
-    color: var(--brand-dark);
-}
-
+/* --- FOOTER --- */
 .site-footer {
     background-color: #1a202c;
-    /* Un gris casi negro muy elegante */
+    /* Gris oscuro profesional */
     color: #e2e8f0;
-    padding: 4rem 2rem 1rem 2rem;
+    padding: 4rem 2rem 1.5rem 2rem;
     margin-top: 4rem;
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 3rem;
     max-width: 1100px;
     margin: 0 auto;
@@ -145,27 +180,41 @@ h2 {
 .footer-project h4 {
     color: var(--white);
     margin-bottom: 1rem;
-    font-size: 1rem;
     text-transform: uppercase;
+    font-size: 0.9rem;
     letter-spacing: 1px;
 }
 
 .footer-info p,
 .footer-project p {
     font-size: 0.9rem;
-    line-height: 1.5;
     color: #a0aec0;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: #718096;
 }
 
-@media (max-width: 600px) {
-    .footer-content {
-        text-align: center;
+/* --- RESPONSIVE (Celulares) --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .nav-links {
+        margin-top: 1.2rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        /* Pasa a 1 columna en móvil */
+    }
+
+    .hero h1 {
+        font-size: 2rem;
     }
 }
