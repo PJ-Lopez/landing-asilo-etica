@@ -1,9 +1,9 @@
-/* --- VARIABLES DE MARCA (Basadas en tu logo) --- */
+/* --- VARIABLES DE MARCA --- */
 :root {
     --brand-color: #3aa9ad;
-    /* Turquesa principal */
+    /* Turquesa del logo */
     --brand-dark: #2c8a8e;
-    /* Turquesa oscuro para contrastes */
+    /* Turquesa oscuro para contraste */
     --white: #ffffff;
     --bg-light: #f4f8f9;
     --text-main: #2d3748;
@@ -22,7 +22,7 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     color: var(--text-main);
     background-color: var(--bg-light);
     line-height: 1.6;
@@ -95,30 +95,47 @@ h2 {
     margin-bottom: 2rem;
 }
 
-/* --- GRID 2x2 (Servicios y Misión/Visión) --- */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
-
 .card {
     background: white;
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     border-top: 6px solid var(--brand-color);
-    height: 100%;
 }
 
-/* --- VALORES (Lista con puntos turquesas) --- */
+/* --- GRID PARA MISIÓN/VISIÓN (2 columnas) --- */
+.grid-identidad {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+/* --- MATRIZ DE SERVICIOS (2x2) --- */
+.grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-item {
+    padding: 1.5rem;
+    border-left: 5px solid var(--brand-color);
+    background: white;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.03);
+    position: relative;
+}
+
+/* --- MATRIZ DE VALORES (3x2) --- */
 .valores-lista {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
-    max-width: 800px;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas para simetría */
+    gap: 2rem;
+    max-width: 900px;
     margin: 2rem auto 0 auto;
 }
 
@@ -131,7 +148,9 @@ h2 {
     align-items: center;
 }
 
-.valores-lista li::before {
+/* Punto turquesa para Valores y Servicios */
+.valores-lista li::before,
+.service-item::after {
     content: '';
     position: absolute;
     left: 0;
@@ -141,19 +160,14 @@ h2 {
     border-radius: 50%;
 }
 
-/* --- SERVICIOS ESPECÍFICOS --- */
-.service-item {
-    padding: 1.5rem;
-    border-left: 5px solid var(--brand-color);
-    background: white;
-    border-radius: 0 15px 15px 0;
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.03);
+/* Ajuste específico para el punto en valores */
+.valores-lista li::before {
+    left: 0;
 }
 
 /* --- FOOTER --- */
 .site-footer {
     background-color: #1a202c;
-    /* Gris oscuro profesional */
     color: #e2e8f0;
     padding: 4rem 2rem 1.5rem 2rem;
     margin-top: 4rem;
@@ -198,20 +212,29 @@ h2 {
     color: #718096;
 }
 
-/* --- RESPONSIVE (Celulares) --- */
-@media (max-width: 768px) {
+/* --- RESPONSIVE (Celulares y Tablets) --- */
+@media (max-width: 900px) {
+    .valores-lista {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 600px) {
     nav {
         flex-direction: column;
-        padding: 1.5rem;
+        text-align: center;
     }
 
     .nav-links {
-        margin-top: 1.2rem;
+        margin-top: 1rem;
     }
 
-    .grid {
+    .grid-identidad,
+    .grid-servicios,
+    .valores-lista {
         grid-template-columns: 1fr;
-        /* Pasa a 1 columna en móvil */
+        /* 1 columna en móvil */
     }
 
     .hero h1 {
