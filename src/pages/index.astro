@@ -1,86 +1,132 @@
 ---
-// Aquí va la lógica de JavaScript si la necesitaras (Frontmatter)
-const nombreAsilo = "Asilo de Ancianos San José";
+import "../styles/global.css";
+const nombreAsilo = "Asilo de Indigentes San José";
 ---
 
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{nombreAsilo}</title>
-		<style>
-			body {
-				font-family: sans-serif;
-				line-height: 1.6;
-				color: #333;
-				margin: 0;
-			}
-			nav {
-				background: #2c3e50;
-				color: white;
-				padding: 1rem;
-				text-align: center;
-			}
-			section {
-				padding: 2rem;
-				max-width: 800px;
-				margin: auto;
-			}
-			.hero {
-				background: #f4f4f4;
-				text-align: center;
-				padding: 4rem 1rem;
-			}
-			.btn {
-				background: #27ae60;
-				color: white;
-				padding: 10px 20px;
-				text-decoration: none;
-				border-radius: 5px;
-			}
-		</style>
 	</head>
 	<body>
 		<nav>
-			<h1>{nombreAsilo}</h1>
+			<div style="display: flex; align-items: center; gap: 1rem;">
+				<img src="/logo-asilo.png" alt="Logo" height="55" />
+				<div style="line-height: 1.1;">
+					<span
+						style="font-weight: bold; color: var(--brand-color); font-size: 1rem; display: block;"
+						>Asilo de Indigentes</span
+					>
+					<span
+						style="font-weight: 900; color: var(--brand-dark); font-size: 1.2rem; letter-spacing: 1px;"
+						>SAN JOSÉ</span
+					>
+				</div>
+			</div>
+			<div class="nav-links">
+				<a href="#nosotros">Nosotros</a>
+				<a
+					href="#contacto"
+					class="btn-primary"
+					style="padding: 0.5rem 1.5rem; border: 2px solid var(--brand-color);"
+					>Donar</a
+				>
+			</div>
 		</nav>
 
 		<header class="hero">
-			<h2>Cuidando con dignidad y amor</h2>
-			<p>Proyecto de Ética Profesional - Séptimo Semestre</p>
-			<a href="#contacto" class="btn">¿Cómo ayudar?</a>
+			<h1 style="font-size: 3rem; margin-bottom: 1rem;">
+				Dignidad y Amor en la Vejez
+			</h1>
+			<p
+				style="font-size: 1.3rem; max-width: 700px; margin: 0 auto 2rem auto; opacity: 0.9;"
+			>
+				Brindamos un hogar seguro y cuidado integral a nuestros adultos
+				mayores en Quetzaltenango.
+			</p>
+			<a href="#nosotros" class="btn-primary">Conoce nuestra labor</a>
 		</header>
 
 		<section id="nosotros">
-			<h2>Nuestra Misión</h2>
-			<p>
-				Este espacio busca dar visibilidad a las necesidades de nuestros
-				adultos mayores...
-			</p>
+			<h2>Nuestra Misión Ética</h2>
+			<div class="grid">
+				<div class="card">
+					<h3>Cuidado Integral</h3>
+					<p>
+						Nos enfocamos en la salud física y mental de cada
+						residente, garantizando que sus necesidades básicas y
+						emocionales sean atendidas con respeto.
+					</p>
+				</div>
+				<div class="card">
+					<h3>Transparencia</h3>
+					<p>
+						Como proyecto de ética profesional, promovemos la
+						claridad en el uso de recursos y la visibilidad de las
+						necesidades reales del asilo.
+					</p>
+				</div>
+			</div>
 		</section>
 
-		<section id="contacto">
-			<h2>Contacto y Donaciones</h2>
-			<form name="contacto" method="POST" data-netlify="true">
-				<div style="margin-bottom: 1rem;">
-					<label>Nombre:</label><br />
+		<section
+			id="contacto"
+			style="background-color: #fff; border-radius: 30px; margin-bottom: 4rem;"
+		>
+			<h2 style="margin-top: 0;">¿Cómo puedes ayudar?</h2>
+			<p style="text-align: center; color: var(--text-muted);">
+				Completa el formulario y nos pondremos en contacto contigo para
+				coordinar tu apoyo.
+			</p>
+
+			<form
+				name="contacto-asilo"
+				method="POST"
+				data-netlify="true"
+				style="max-width: 600px; margin: 2rem auto 0 auto;"
+			>
+				<div style="margin-bottom: 1.5rem;">
+					<label
+						style="display: block; font-weight: bold; margin-bottom: 0.5rem;"
+						>Nombre Completo</label
+					>
 					<input
 						type="text"
-						name="name"
-						style="width:100%"
+						name="nombre"
 						required
+						style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;"
 					/>
 				</div>
-				<div style="margin-bottom: 1rem;">
-					<label>Mensaje:</label><br />
-					<textarea name="message" style="width:100%" rows="4"
+				<div style="margin-bottom: 1.5rem;">
+					<label
+						style="display: block; font-weight: bold; margin-bottom: 0.5rem;"
+						>¿Cómo deseas colaborar?</label
+					>
+					<textarea
+						name="mensaje"
+						rows="4"
+						style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;"
+						placeholder="Donaciones, voluntariado, víveres..."
 					></textarea>
 				</div>
 				<button
 					type="submit"
-					class="btn"
-					style="border:none; cursor:pointer;">Enviar Mensaje</button
+					class="btn-primary"
+					style="background-color: var(--brand-color); color: white; border: none; width: 100%; cursor: pointer; font-size: 1.1rem;"
+					>Enviar Mensaje</button
 				>
 			</form>
 		</section>
+
+		<footer
+			style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem;"
+		>
+			<p>
+				&copy; 2026 {nombreAsilo}. Proyecto Estudiantil de Ética
+				Profesional.
+			</p>
+		</footer>
 	</body>
 </html>
