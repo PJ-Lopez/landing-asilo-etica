@@ -13,7 +13,7 @@ const nombreAsilo = "Asilo de Indigentes San José";
 	<body>
 		<nav>
 			<div style="display: flex; align-items: center; gap: 1rem;">
-				<img src="/logo-asilo.png" alt="Logo" height="55" />
+				<img src="/logo.png" alt="Logo" height="55" />
 				<div style="line-height: 1.1;">
 					<span
 						style="font-weight: bold; color: var(--brand-color); font-size: 1rem; display: block;"
@@ -50,24 +50,81 @@ const nombreAsilo = "Asilo de Indigentes San José";
 		</header>
 
 		<section id="nosotros">
-			<h2>Nuestra Misión Ética</h2>
+			<h2>Nuestra Identidad</h2>
 			<div class="grid">
 				<div class="card">
-					<h3>Cuidado Integral</h3>
+					<h3 style="color: var(--brand-color);">Misión</h3>
 					<p>
-						Nos enfocamos en la salud física y mental de cada
-						residente, garantizando que sus necesidades básicas y
-						emocionales sean atendidas con respeto.
+						Brindar atención integral a adultos mayores en
+						vulnerabilidad, asegurando alimentación, salud y
+						vivienda digna, promoviendo la solidaridad como eje
+						central.
 					</p>
 				</div>
 				<div class="card">
-					<h3>Transparencia</h3>
+					<h3 style="color: var(--brand-color);">Visión</h3>
 					<p>
-						Como proyecto de ética profesional, promovemos la
-						claridad en el uso de recursos y la visibilidad de las
-						necesidades reales del asilo.
+						Ser un referente regional en el cuidado integral,
+						reconocido por la calidad humana y la capacidad de
+						generar conciencia social sobre el valor de nuestros
+						mayores.
 					</p>
 				</div>
+			</div>
+
+			<div class="card" style="margin-top: 2rem;">
+				<h3>Nuestros Valores Éticos</h3>
+				<div
+					style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; text-align: center;"
+				>
+					<div><strong>🤝 Solidaridad</strong></div>
+					<div><strong>🤍 Respeto</strong></div>
+					<div><strong>💎 Transparencia</strong></div>
+					<div><strong>🔥 Compromiso</strong></div>
+					<div><strong>🫂 Empatía</strong></div>
+					<div><strong>🌍 Inclusión</strong></div>
+				</div>
+			</div>
+		</section>
+
+		<section id="servicios" style="background-color: var(--white);">
+			<h2>Servicios que Brindamos</h2>
+			<div class="grid">
+				<div class="service-item">
+					<h4>🍎 Alimentación</h4>
+					<p>
+						Dieta balanceada y adaptada a necesidades nutricionales.
+					</p>
+				</div>
+				<div class="service-item">
+					<h4>⚕️ Atención Médica</h4>
+					<p>Seguimiento personalizado y acompañamiento en citas.</p>
+				</div>
+				<div class="service-item">
+					<h4>🎨 Recreación</h4>
+					<p>
+						Talleres cognitivos, áreas verdes y convivencia social.
+					</p>
+				</div>
+				<div class="service-item">
+					<h4>🏠 Vivienda Digna</h4>
+					<p>Espacios seguros y adaptados en el corazón de Xela.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="ubicacion">
+			<h2>¿Dónde estamos?</h2>
+			<div class="card" style="text-align: center;">
+				<p>
+					📍 <strong
+						>14 Avenida, Zona 3 (Frente a Emax), Quetzaltenango.</strong
+					>
+				</p>
+				<p>
+					Nuestra ubicación estratégica nos permite estar cerca de la
+					comunidad para facilitar el voluntariado.
+				</p>
 			</div>
 		</section>
 
@@ -120,13 +177,40 @@ const nombreAsilo = "Asilo de Indigentes San José";
 			</form>
 		</section>
 
-		<footer
-			style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem;"
-		>
-			<p>
-				&copy; 2026 {nombreAsilo}. Proyecto Estudiantil de Ética
-				Profesional.
-			</p>
+		<footer class="site-footer">
+			<div class="footer-content">
+				<div class="footer-brand">
+					<img
+						src="/logo-asilo.png"
+						alt="Logo San José"
+						height="40"
+					/>
+					<p>Asilo de Indigentes San José</p>
+				</div>
+
+				<div class="footer-info">
+					<h4>Ubicación</h4>
+					<p>
+						14 Avenida, Zona 3 (Frente a Emax)<br />Quetzaltenango,
+						Guatemala.
+					</p>
+				</div>
+
+				<div class="footer-project">
+					<h4>Proyecto Académico</h4>
+					<p>
+						Desarrollado para el curso de Ética Profesional<br />7mo
+						Semestre, Ingeniería en Sistemas.
+					</p>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>
+					&copy; 2026 Asilo de Indigentes San José. Todos los derechos
+					reservados.
+				</p>
+			</div>
 		</footer>
 	</body>
 </html>
