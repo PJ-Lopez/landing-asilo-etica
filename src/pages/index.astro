@@ -1,17 +1,86 @@
 ---
-
+// Aquí va la lógica de JavaScript si la necesitaras (Frontmatter)
+const nombreAsilo = "Asilo de Ancianos San José";
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{nombreAsilo}</title>
+		<style>
+			body {
+				font-family: sans-serif;
+				line-height: 1.6;
+				color: #333;
+				margin: 0;
+			}
+			nav {
+				background: #2c3e50;
+				color: white;
+				padding: 1rem;
+				text-align: center;
+			}
+			section {
+				padding: 2rem;
+				max-width: 800px;
+				margin: auto;
+			}
+			.hero {
+				background: #f4f4f4;
+				text-align: center;
+				padding: 4rem 1rem;
+			}
+			.btn {
+				background: #27ae60;
+				color: white;
+				padding: 10px 20px;
+				text-decoration: none;
+				border-radius: 5px;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<nav>
+			<h1>{nombreAsilo}</h1>
+		</nav>
+
+		<header class="hero">
+			<h2>Cuidando con dignidad y amor</h2>
+			<p>Proyecto de Ética Profesional - Séptimo Semestre</p>
+			<a href="#contacto" class="btn">¿Cómo ayudar?</a>
+		</header>
+
+		<section id="nosotros">
+			<h2>Nuestra Misión</h2>
+			<p>
+				Este espacio busca dar visibilidad a las necesidades de nuestros
+				adultos mayores...
+			</p>
+		</section>
+
+		<section id="contacto">
+			<h2>Contacto y Donaciones</h2>
+			<form name="contacto" method="POST" data-netlify="true">
+				<div style="margin-bottom: 1rem;">
+					<label>Nombre:</label><br />
+					<input
+						type="text"
+						name="name"
+						style="width:100%"
+						required
+					/>
+				</div>
+				<div style="margin-bottom: 1rem;">
+					<label>Mensaje:</label><br />
+					<textarea name="message" style="width:100%" rows="4"
+					></textarea>
+				</div>
+				<button
+					type="submit"
+					class="btn"
+					style="border:none; cursor:pointer;">Enviar Mensaje</button
+				>
+			</form>
+		</section>
 	</body>
 </html>
