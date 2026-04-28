@@ -1,9 +1,7 @@
 /* --- VARIABLES DE MARCA --- */
 :root {
     --brand-color: #3aa9ad;
-    /* Turquesa del logo */
     --brand-dark: #2c8a8e;
-    /* Turquesa oscuro para contraste */
     --white: #ffffff;
     --bg-light: #f4f8f9;
     --text-main: #2d3748;
@@ -103,14 +101,14 @@ h2 {
     border-top: 6px solid var(--brand-color);
 }
 
-/* --- GRID PARA MISIÓN/VISIÓN (2 columnas) --- */
+/* --- GRID IDENTIDAD (Misión y Visión a la par) --- */
 .grid-identidad {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
-/* --- MATRIZ DE SERVICIOS (2x2) --- */
+/* --- MATRIZ DE SERVICIOS (2x2 o 3x2 según cantidad) --- */
 .grid-servicios {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -120,11 +118,17 @@ h2 {
 
 .service-item {
     padding: 1.5rem;
-    border-left: 5px solid var(--brand-color);
+    border-left: 6px solid var(--brand-color);
+    /* Línea lateral más gruesa y estética */
     background: white;
     border-radius: 0 15px 15px 0;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.03);
-    position: relative;
+    /* Eliminamos el ::after que ponía el punto */
+}
+
+.service-item h4 {
+    color: var(--brand-dark);
+    margin-bottom: 0.5rem;
 }
 
 /* --- MATRIZ DE VALORES (3x2) --- */
@@ -133,7 +137,6 @@ h2 {
     padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 3 columnas para simetría */
     gap: 2rem;
     max-width: 900px;
     margin: 2rem auto 0 auto;
@@ -148,9 +151,8 @@ h2 {
     align-items: center;
 }
 
-/* Punto turquesa para Valores y Servicios */
-.valores-lista li::before,
-.service-item::after {
+/* Punto turquesa SOLO para Valores */
+.valores-lista li::before {
     content: '';
     position: absolute;
     left: 0;
@@ -158,11 +160,6 @@ h2 {
     height: 12px;
     background-color: var(--brand-color);
     border-radius: 50%;
-}
-
-/* Ajuste específico para el punto en valores */
-.valores-lista li::before {
-    left: 0;
 }
 
 /* --- FOOTER --- */
@@ -183,11 +180,19 @@ h2 {
     padding-bottom: 2rem;
 }
 
+.footer-brand img {
+    height: 85px;
+    /* Logo más grande en el footer */
+    width: auto;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(1);
+    /* Lo hace blanco para resaltar */
+}
+
 .footer-brand p {
     font-weight: bold;
     font-size: 1.2rem;
     color: var(--brand-color);
-    margin-top: 1rem;
 }
 
 .footer-info h4,
@@ -212,15 +217,14 @@ h2 {
     color: #718096;
 }
 
-/* --- RESPONSIVE (Celulares y Tablets) --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 900px) {
     .valores-lista {
         grid-template-columns: repeat(2, 1fr);
-        /* 2 columnas en tablets */
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     nav {
         flex-direction: column;
         text-align: center;
@@ -230,11 +234,11 @@ h2 {
         margin-top: 1rem;
     }
 
+    /* Todo a una columna en móviles */
     .grid-identidad,
     .grid-servicios,
     .valores-lista {
-        grid-template-columns: 1fr;
-        /* 1 columna en móvil */
+        grid-template-columns: 1fr !important;
     }
 
     .hero h1 {
